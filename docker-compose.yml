@@ -1,0 +1,13 @@
+services:
+  samplewithhttps:
+    image: ${DOCKER_REGISTRY-}samplewithhttps
+    build:
+      context: .
+      dockerfile: SampleWithHttps/Dockerfile
+
+  backend:
+    image: ${DOCKER_REGISTRY-}backend
+    build:
+      context: .
+      dockerfile: Backend/Dockerfile
+

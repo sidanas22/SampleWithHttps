@@ -1,0 +1,28 @@
+#See https://aka.ms/overrideVSDockerComposeConfiguration to understand how Visual Studio uses this override file.
+
+services:
+  samplewithhttps:
+    build:
+      target: testCerts
+    env_file:
+      - ./SampleWithHttps/ContainerCerts.env
+    volumes:
+      - ./Certs:/Certs    
+    #labels:
+      #com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: "\"/app/bin/Debug/net8.0/SampleWithHttps.dll\""
+      #com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      #com.microsoft.visualstudio.debuggee.killprogram: "$kill_command$"
+
+  backend:
+    build:
+      target: testCerts
+    env_file:
+      - ./Backend/ContainerCerts.env
+    volumes:
+      - ./Certs:/Certs    
+    #labels:
+      #com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: "\"/app/bin/Debug/net8.0/Backend.dll\""
+      #com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      #com.microsoft.visualstudio.debuggee.killprogram: "$kill_command$"
