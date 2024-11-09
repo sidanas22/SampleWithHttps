@@ -361,3 +361,17 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignore every file except .cnf,.sh, .ps1 under the Certs directory
+Certs/*.cer
+Certs/*.csr
+Certs/*.crt
+Certs/*.pem
+Certs/*.srl
+Certs/Password.txt
+
+
+
+# Ignore only the .env under the Backend directory
+/Backend/*.env
+/SampleWithHttps/*.env
