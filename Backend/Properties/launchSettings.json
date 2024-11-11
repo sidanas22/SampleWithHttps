@@ -36,7 +36,9 @@
         "ASPNETCORE_HTTPS_PORTS": "8081",
         "ASPNETCORE_HTTP_PORTS": "8080"
       },
-      "publishAllPorts": true,
+      //"publishAllPorts": true,
+      "httpPort": 24051,
+      "sslPort": 24052,
       "useSSL": true
     }
   },

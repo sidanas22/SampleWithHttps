@@ -10,4 +10,30 @@ services:
     build:
       context: .
       dockerfile: Backend/Dockerfile
+    depends_on:
+      - cache
 
+  cache:
+    image: redis:7.4.1
+    restart: always
+    command: redis-server --requirepass "$REDIS_JOBS_PASSWORD"
+    ports:
+      - '6379:6379'
+    volumes:
+      - redisvolume:/data
+    environment:
+      - REDIS_JOBS_PASSWORD=hello
+
+volumes:
+  redisvolume:
+  # dev.database:
+  #   image: postgres:14
+  #   container_name: dev.database
+  #   environment:
+  #     - POSTGRES_DB=products
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #   volumes:
+  #     - ./.containers/products-db:/var/lib/postgresql/data
+  #   ports:
+  #     - 5432:5432

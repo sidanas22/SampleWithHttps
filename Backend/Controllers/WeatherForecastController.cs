@@ -1,3 +1,4 @@
+using CommonLib;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -33,11 +34,18 @@ namespace Backend.Controllers
         [HttpGet("new")]
         public IActionResult GetNewMock()
         {
-            return Ok(new Person
+            // var person = new Person
+            // {
+            //    Name = "Anas",
+            //    Age = 22
+            // };
+
+            var person = new NewPerson
             {
-               Name = "Anas",
-               Age = 22
-            });
+                Age = 22
+            };
+
+            return Ok(person);
         }
     }
 }

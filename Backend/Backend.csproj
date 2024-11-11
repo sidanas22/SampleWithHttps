@@ -18,6 +18,10 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Shared\CommonLib.csproj" />
+	</ItemGroup>
+
 	<!--<Target Name="CreateCerts" Inputs="$(MSBuildProjectDirectory)\..\Certs\Create-Certs.ps1" Outputs="$(MSBuildProjectDirectory)\ContainerCerts.env" Condition=" '$(BuildingInsideVisualStudio)' == 'true' ">
 		<Exec Command="powershell -ExecutionPolicy ByPass ..\Certs\Create-Certs.ps1" WorkingDirectory="$(MSBuildProjectDirectory)" />
 	</Target>-->
