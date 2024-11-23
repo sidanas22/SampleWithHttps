@@ -16,16 +16,14 @@ services:
   cache:
     image: redis:7.4.1
     restart: always
-    command: redis-server --requirepass "$REDIS_JOBS_PASSWORD"
+    command: ["redis-server","--requirepass", "$REDIS_JOBS_PASSWORD"]
     ports:
       - '6379:6379'
     volumes:
-      - redisvolume:/data
-    environment:
-      - REDIS_JOBS_PASSWORD=hello
+      - rediscachevolume:/data
 
 volumes:
-  redisvolume:
+  rediscachevolume:
   # dev.database:
   #   image: postgres:14
   #   container_name: dev.database

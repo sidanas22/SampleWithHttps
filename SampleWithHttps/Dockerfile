@@ -11,6 +11,15 @@ FROM base AS testCerts
 ADD Certs/test-ca.crt /usr/local/share/ca-certificates/test-ca.crt
 RUN chmod 644 /usr/local/share/ca-certificates/test-ca.crt && update-ca-certificates
 
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dev
+ADD Certs/test-ca.crt /usr/local/share/ca-certificates/test-ca.crt
+RUN chmod 644 /usr/local/share/ca-certificates/test-ca.crt && update-ca-certificates
+WORKDIR /src
+COPY ["SampleWithHttps/SampleWithHttps.csproj", "SampleWithHttps/"]
+COPY . .
+WORKDIR "/src/SampleWithHttps"
+CMD dotnet run --no-launch-profile
+
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
