@@ -28,3 +28,7 @@ README.md
 !.git/config
 !.git/packed-refs
 !.git/refs/heads/**
+
+# Ignore start and stop scripts
+./start-sln.ps1
+./stop-sln.ps1

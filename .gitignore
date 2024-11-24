@@ -370,8 +370,4 @@ Certs/*.pem
 Certs/*.srl
 Certs/Password.txt
 
-
-
-# Ignore only the .env under the Backend directory
-/Backend/*.env
-/SampleWithHttps/*.env
+**/ContainerCerts.env
