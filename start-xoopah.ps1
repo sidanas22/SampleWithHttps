@@ -7,7 +7,7 @@ function Start-ServiceLog {
         [string]$serviceName,
         [string]$windowTitle = "$serviceName Logs"
     )
-    Start-Process powershell -ArgumentList "-NoExit", "-Command", "`\$Host.UI.RawUI.WindowTitle = '$windowTitle'; docker compose -p sampleproject logs -f $serviceName" -PassThru
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", "`$Host.UI.RawUI.WindowTitle = '$windowTitle'; docker compose -p sampleproject logs -f $serviceName" -PassThru
 }
 
 # Define services
